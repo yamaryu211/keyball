@@ -22,6 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "keyball.h"
 #include "drivers/pmw3360/pmw3360.h"
+// OS判別用に追加
+#include "os_detection.h"
 
 #include <string.h>
 
@@ -33,7 +35,7 @@ const uint16_t AML_TIMEOUT_MIN = 100;
 const uint16_t AML_TIMEOUT_MAX = 1000;
 const uint16_t AML_TIMEOUT_QU  = 50;   // Quantization Unit
 
-const uint16_t AML_ACTIVATE_THRESHOLD = 50;
+const uint16_t AML_ACTIVATE_THRESHOLD = 5; // 自分用にマウスの開始感度を修正
 
 static const char BL = '\xB0'; // Blank indicator character
 static const char LFSTR_ON[] PROGMEM = "\xB2\xB3";
@@ -201,12 +203,9 @@ static void adjust_mouse_speed(report_mouse_t *r) {
 
 __attribute__((weak)) void keyball_on_apply_motion_to_mouse_move(keyball_motion_t *m, report_mouse_t *r, bool is_left) {
 #if KEYBALL_MODEL == 61 || KEYBALL_MODEL == 39 || KEYBALL_MODEL == 147 || KEYBALL_MODEL == 44
-    r->x = clip2int8(m->y);
-    r->y = clip2int8(m->x);
-    if (is_left) {
-        r->x = -r->x;
-        r->y = -r->y;
-    }
+    // ファームウェア容量削減のために三項演算子で書き換え
+    r->x = is_left ? -clip2int8(m->y) : clip2int8(m->y);
+    r->y = is_left ? -clip2int8(m->x) : clip2int8(m->x);
 #elif KEYBALL_MODEL == 46
     r->x = clip2int8(m->x);
     r->y = -clip2int8(m->y);
@@ -227,12 +226,9 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
 
     // apply to mouse report.
 #if KEYBALL_MODEL == 61 || KEYBALL_MODEL == 39 || KEYBALL_MODEL == 147 || KEYBALL_MODEL == 44
-    r->h = clip2int8(y);
-    r->v = -clip2int8(x);
-    if (is_left) {
-        r->h = -r->h;
-        r->v = -r->v;
-    }
+    // ファームウェア容量削減のために三項演算子で書き換え
+    r->h = is_left ? -clip2int8(y) : clip2int8(y);
+    r->v = is_left ? clip2int8(x) : -clip2int8(x);
 #elif KEYBALL_MODEL == 46
     r->h = clip2int8(x);
     r->v = clip2int8(y);
@@ -267,6 +263,15 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
             break;
     }
 #endif
+
+// --- ここから追記 ---
+    // windowsOSでスクロール方向反転
+    if (detected_host_os() == OS_WINDOWS || detected_host_os() == OS_LINUX){
+        r->h = -r->h;
+        r->v = -r->v;
+    }
+// --- ここまで追記 ---
+
 }
 
 static void motion_to_mouse(keyball_motion_t *m, report_mouse_t *r, bool is_left, bool as_scroll) {
