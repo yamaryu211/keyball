@@ -512,25 +512,25 @@ void keyball_oled_render_ballinfo(void) {
     oled_write_P(PSTR(" \xC0\xC1"), false);
     oled_write_char('0' + keyball_get_scroll_div(), false);
 
-    // OS info
-    oled_write_P(PSTR("OS\xB1"), false);
-    switch (detected_host_os()) {
-        case OS_WINDOWS:
-            oled_write_P(PSTR("Windows"), false);
-            break;
-        case OS_MACOS:
-            oled_write_P(PSTR("MacOS"), false);
-            break;
-        case OS_LINUX:
-            oled_write_P(PSTR("Linux"), false);
-            break;
-        case OS_IOS:
-            oled_write_P(PSTR("iOS/iPadOS"), false);
-            break;
-        default:
-            oled_write_P(PSTR("UNSURE"), false);
-            break;
-    }
+    // // OS info （一旦無効化…）
+    // oled_write_P(PSTR("OS\xB1"), false);
+    // switch (detected_host_os()) {
+    //     case OS_WINDOWS:
+    //         oled_write_P(PSTR("Windows"), false);
+    //         break;
+    //     case OS_MACOS:
+    //         oled_write_P(PSTR("MacOS"), false);
+    //         break;
+    //     case OS_LINUX:
+    //         oled_write_P(PSTR("Linux"), false);
+    //         break;
+    //     case OS_IOS:
+    //         oled_write_P(PSTR("iOS/iPadOS"), false);
+    //         break;
+    //     default:
+    //         oled_write_P(PSTR("UNSURE"), false);
+    //         break;
+    // }
 #endif
 }
 
