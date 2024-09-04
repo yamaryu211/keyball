@@ -47,7 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD
-#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD 12
+#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD 1
 #endif
 
 /// Specify SROM ID to be uploaded PMW3360DW (optical sensor).  It will be
