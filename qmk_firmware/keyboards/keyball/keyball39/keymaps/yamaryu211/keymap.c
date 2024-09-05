@@ -85,17 +85,17 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #ifdef RGBLIGHT_ENABLE
     // レイヤーとLEDを連動させる（レイヤー6のみを点灯させる）
     uint8_t layer = biton32(state);
-    // 三項演算子で書き換え
-    layer == 6 ? rgblight_enable_noeeprom() : rgblight_disable_noeeprom();
-    // switch (layer)
-    // {
-    // case 6:
-    //     rgblight_enable_noeeprom();
-    //     break;
+    // 三項演算子で書き換え→効果なし
+    //layer == 6 ? rgblight_enable_noeeprom() : rgblight_disable_noeeprom();
+    switch (layer)
+    {
+    case 6:
+        rgblight_enable_noeeprom();
+        break;
 
-    // default:
-    //     rgblight_disable_noeeprom();
-    // }
+    default:
+        rgblight_disable_noeeprom();
+    }
 #endif
 
     return state;

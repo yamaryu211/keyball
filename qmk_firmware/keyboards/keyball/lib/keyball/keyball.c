@@ -72,11 +72,13 @@ __attribute__((weak)) void keyball_on_adjust_layout(keyball_adjust_t v) {}
 // add16 adds two int16_t with clipping.
 static int16_t add16(int16_t a, int16_t b) {
     int16_t r = a + b;
-    if (a >= 0 && b >= 0 && r < 0) {
-        r = 32767;
-    } else if (a < 0 && b < 0 && r >= 0) {
-        r = -32768;
-    }
+    // 三項演算子で書き換え
+    r = (a >= 0 && b >= 0 && r < 0) ? 32767 : (a < 0 && b < 0 && r >= 0) ? -32768 : r;
+    // if (a >= 0 && b >= 0 && r < 0) {
+    //     r = 32767;
+    // } else if (a < 0 && b < 0 && r >= 0) {
+    //     r = -32768;
+    // }
     return r;
 }
 
