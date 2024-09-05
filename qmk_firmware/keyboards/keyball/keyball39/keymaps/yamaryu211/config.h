@@ -53,3 +53,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_DEFAULT_HUE 0          // バックライトの初期値
 #define RGBLIGHT_DEFAULT_SAT 0          // 〃
 #define RGBLIGHT_DEFAULT_VAL 70         // 〃
+
+// LOCKING_XXXの無効化
+#undef LOCKING_SUPPORT_ENABLE
+#undef LOCKING_RESYNC_ENABLE
+
+// ワンショットキー機能を無効化
+#define NO_ACTION_ONESHOT
+
+// オーディオ設定を無効化
+#define NO_MUSIC_MODE
