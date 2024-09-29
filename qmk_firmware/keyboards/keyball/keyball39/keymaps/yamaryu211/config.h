@@ -53,3 +53,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_DEFAULT_HUE 0          // バックライトの初期値
 #define RGBLIGHT_DEFAULT_SAT 0          // 〃
 #define RGBLIGHT_DEFAULT_VAL 70         // 〃
+
+// IGNORE_MOD_TAP_INTERRUPTの有効化
+#define IGNORE_MOD_TAP_INTERRUPT
