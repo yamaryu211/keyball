@@ -116,11 +116,6 @@ enum keyball_keycodes {
     AML_I50  = QK_KB_11, // Increment automatic mouse layer timeout
     AML_D50  = QK_KB_12, // Decrement automatic mouse layer timeout
 
-    // Dynamic Tapping Term
-    DT_PRNT  = QK_KB_16, // Types the current tapping term, in milliseconds
-    DT_UP    = QK_KB_17, // Increases the current tapping term by DYNAMIC_TAPPING_TERM_INCREMENTms (5ms by default)
-    DT_DOWN  = QK_KB_18, // Decreases the current tapping term by DYNAMIC_TAPPING_TERM_INCREMENTms (5ms by default)
-
     // User customizable 32 keycodes.
     KEYBALL_SAFE_RANGE = QK_USER_0,
 };
