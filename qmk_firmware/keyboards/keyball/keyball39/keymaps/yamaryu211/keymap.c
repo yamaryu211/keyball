@@ -110,13 +110,13 @@ void oledkit_render_info_user(void) {
 }
 #endif
 
-// コンボキーの設定
-#ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
+// // コンボキーの設定
+// #ifdef COMBO_ENABLE
+// const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
+// const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
 
-combo_t key_combos[] = {
-    COMBO(combo_esc, KC_ESC),
-    COMBO(combo_tab, KC_TAB),
-};
-#endif
+// combo_t key_combos[] = {
+//     COMBO(combo_esc, KC_ESC),
+//     COMBO(combo_tab, KC_TAB),
+// };
+// #endif
