@@ -59,8 +59,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______ ,  _______  , _______  , _______  , _______  , _______  
   ),
   [5] = LAYOUT_universal(
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , MS_BTN3  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , MS_BTN1  , MS_BTN2  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______ ,  _______  , _______  , _______  , _______  , _______  
   ),
@@ -77,7 +77,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #endif
 
 #ifdef RGBLIGHT_ENABLE
-    // レイヤーとLEDを連動させる（レイヤー6のみを点灯させる）
+    // レイヤーとLEDを連動させる（レイヤー5のみを点灯させる）
     uint8_t layer = biton32(state);
     switch (layer)
     {
@@ -105,12 +105,12 @@ void oledkit_render_info_user(void) {
 #endif
 
 // // コンボキーの設定
-// #ifdef COMBO_ENABLE
-// const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
-// const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
+#ifdef COMBO_ENABLE
+const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
 
-// combo_t key_combos[] = {
-//     COMBO(combo_esc, KC_ESC),
-//     COMBO(combo_tab, KC_TAB),
-// };
-// #endif
+combo_t key_combos[] = {
+    COMBO(combo_esc, KC_ESC),
+    COMBO(combo_tab, KC_TAB),
+};
+#endif
