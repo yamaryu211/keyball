@@ -39,14 +39,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define OLED_TIMEOUT 30000 // ミリ秒
 
 // レイヤ―数追加
-#define DYNAMIC_KEYMAP_LAYER_COUNT 7
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
 // マウス、スクロール速度デフォルト値の設定
-#define KEYBALL_CPI_DEFAULT 800 // マウス速度 (default: 500)
+#define KEYBALL_CPI_DEFAULT 900 // マウス速度 (default: 500)
 #define KEYBALL_SCROLL_DIV_DEFAULT 5 // スクロール速度 (default: 4)
 
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
-#define AUTO_MOUSE_DEFAULT_LAYER 6 // マウスレイヤーをレイヤー6に設定
+#define AUTO_MOUSE_DEFAULT_LAYER 5 // マウスレイヤーをレイヤー6に設定
 #define AUTO_MOUSE_LAYER_KEEP_TIME 30000 // マウスレイヤーを維持する時間を30秒に設定
 
 #define SPLIT_LAYER_STATE_ENABLE        // レイヤー情報をサブキーボードに送信する
