@@ -35,8 +35,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAP_CODE_DELAY 5
 
-// OLED自動消灯時間を所定60秒から30秒に変更
-#define OLED_TIMEOUT 30000 // ミリ秒
+// OLED自動消灯時間を所定60ミリ秒から30秒に変更→試験的に80ミリ秒に変更
+#define OLED_TIMEOUT 800 // ミリ秒
 
 // レイヤ―数追加
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
