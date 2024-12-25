@@ -53,3 +53,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_DEFAULT_HUE 0          // バックライトの初期値
 #define RGBLIGHT_DEFAULT_SAT 0          // 〃
 #define RGBLIGHT_DEFAULT_VAL 70         // 〃
+
+// USB接続時のタイムアウト時間を2.5秒に設定
+# define SPLIT_USB_TIMEOUT 2500 // ミリ秒
