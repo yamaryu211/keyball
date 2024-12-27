@@ -148,7 +148,7 @@ void set_scroll_snap_mode(bool vertical) {
     }
 }
 
-void pointing_device_task(void) {
+bool pointing_device_task(void) {
     report_mouse_t mouse_report = pointing_device_get_report();
 
     // トラックボールの動きに応じてスクロールスナップモードを変更
@@ -160,6 +160,8 @@ void pointing_device_task(void) {
 
     pointing_device_set_report(mouse_report);
     pointing_device_send();
+
+    return false; // デフォルトでは変更なしを返す
 }
 
 bool process_mouse_scroll(report_mouse_t* mouse_report) {
