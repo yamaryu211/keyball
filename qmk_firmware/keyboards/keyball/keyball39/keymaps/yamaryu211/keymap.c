@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 #include "quantum.h"
+#include "pointing_device.h"
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -131,3 +132,45 @@ void oledkit_render_info_user(void) {
       [9] = COMBO(combo_middle_click2, KC_BTN3),
   };
 #endif
+
+// スクロールスナップの自動固定機能
+// スクロールスナップの方向を保持する変数
+static enum {
+    SNAP_VERTICAL,
+    SNAP_HORIZONTAL
+} scroll_snap_mode = SNAP_VERTICAL;
+
+void set_scroll_snap_mode(bool vertical) {
+    if (vertical) {
+        scroll_snap_mode = SNAP_VERTICAL;
+    } else {
+        scroll_snap_mode = SNAP_HORIZONTAL;
+    }
+}
+
+void pointing_device_task(void) {
+    report_mouse_t mouse_report = pointing_device_get_report();
+
+    // トラックボールの動きに応じてスクロールスナップモードを変更
+    if (abs(mouse_report.x) > abs(mouse_report.y)) {
+        set_scroll_snap_mode(false);  // 水平方向
+    } else if (abs(mouse_report.y) > abs(mouse_report.x)) {
+        set_scroll_snap_mode(true);   // 垂直方向
+    }
+
+    pointing_device_set_report(mouse_report);
+    pointing_device_send();
+}
+
+bool process_mouse_scroll(report_mouse_t* mouse_report) {
+    if (scroll_snap_mode == SNAP_VERTICAL) {
+        mouse_report->x = 0;  // 水平スクロールを無効化
+    } else if (scroll_snap_mode == SNAP_HORIZONTAL) {
+        mouse_report->y = 0;  // 垂直スクロールを無効化
+    }
+    return true;
+}
+
+void process_mouse_user(report_mouse_t *mouse_report) {
+    process_mouse_scroll(mouse_report);
+}
