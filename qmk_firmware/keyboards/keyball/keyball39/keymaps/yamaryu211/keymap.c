@@ -105,12 +105,29 @@ void oledkit_render_info_user(void) {
 #endif
 
 // // コンボキーの設定
-// #ifdef COMBO_ENABLE
-// const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
-// const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
+#ifdef COMBO_ENABLE
+  const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
+  const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
+  const uint16_t PROGMEM combo_left_click[] = {KC_J, KC_K, COMBO_END};
+  const uint16_t PROGMEM combo_right_click[] = {KC_K, KC_L, COMBO_END};
+  const uint16_t PROGMEM combo_middle_click[] = {KC_J, KC_L, COMBO_END};
+  // レイヤー・モディファイアキーを含むコンボキーの設定
+  const uint16_t PROGMEM combo_esc2[] = {MT(MOD_LGUI, KC_Q), KC_W, COMBO_END};
+  const uint16_t PROGMEM combo_tab2[] = {MT(MOD_LCTL, KC_A), MT(MOD_LALT, KC_S), COMBO_END};
+  const uint16_t PROGMEM combo_left_click2[] = {LT(1, KC_J), LT(2, KC_K), COMBO_END};
+  const uint16_t PROGMEM combo_right_click2[] = {LT(2, KC_K), MT(MOD_LALT, KC_L), COMBO_END};
+  const uint16_t PROGMEM combo_middle_click2[] = {LT(1, KC_J), MT(MOD_LALT, KC_L), COMBO_END};
 
-// combo_t key_combos[] = {
-//     COMBO(combo_esc, KC_ESC),
-//     COMBO(combo_tab, KC_TAB),
-// };
-// #endif
+  combo_t key_combos[] = {
+      [0] = COMBO(combo_esc, KC_ESC),
+      [1] = COMBO(combo_tab, KC_TAB),
+      [2] = COMBO(combo_left_click, KC_BTN1),
+      [3] = COMBO(combo_right_click, KC_BTN2),
+      [4] = COMBO(combo_middle_click, KC_BTN3),
+      [5] = COMBO(combo_esc2, KC_ESC),
+      [6] = COMBO(combo_tab2, KC_TAB),
+      [7] = COMBO(combo_left_click2, KC_BTN1),
+      [8] = COMBO(combo_right_click2, KC_BTN2),
+      [9] = COMBO(combo_middle_click2, KC_BTN3),
+  };
+#endif
