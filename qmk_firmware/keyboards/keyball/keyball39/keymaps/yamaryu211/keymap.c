@@ -117,6 +117,12 @@ void oledkit_render_info_user(void) {
   const uint16_t PROGMEM combo_left_click2[] = {LT(1, KC_J), LT(2, KC_K), COMBO_END};
   const uint16_t PROGMEM combo_right_click2[] = {LT(2, KC_K), MT(MOD_LALT, KC_L), COMBO_END};
   const uint16_t PROGMEM combo_middle_click2[] = {LT(1, KC_J), MT(MOD_LALT, KC_L), COMBO_END};
+  // 大西配列用のコンボキーの設定
+  const uint16_t PROGMEM combo_esc3[] = {MT(MOD_LGUI, KC_Q), KC_L, COMBO_END};
+  const uint16_t PROGMEM combo_tab3[] = {MT(MOD_LCTL, KC_E), MT(MOD_LALT, KC_I), COMBO_END};
+  const uint16_t PROGMEM combo_left_click3[] = {LT(1, KC_T), LT(2, KC_N), COMBO_END};
+  const uint16_t PROGMEM combo_right_click3[] = {LT(2, KC_N), MT(MOD_LALT, KC_S), COMBO_END};
+  const uint16_t PROGMEM combo_middle_click3[] = {LT(1, KC_T), MT(MOD_LALT, KC_S), COMBO_END};
 
   combo_t key_combos[] = {
       [0] = COMBO(combo_esc, KC_ESC),
@@ -129,5 +135,10 @@ void oledkit_render_info_user(void) {
       [7] = COMBO(combo_left_click2, KC_BTN1),
       [8] = COMBO(combo_right_click2, KC_BTN2),
       [9] = COMBO(combo_middle_click2, KC_BTN3),
+      [10] = COMBO(combo_esc3, KC_ESC),
+      [11] = COMBO(combo_tab3, KC_TAB),
+      [12] = COMBO(combo_left_click3, KC_BTN1),
+      [13] = COMBO(combo_right_click3, KC_BTN2),
+      [14] = COMBO(combo_middle_click3, KC_BTN3),
   };
 #endif
