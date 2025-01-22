@@ -76,32 +76,32 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     keyball_handle_auto_mouse_layer_change(state);
 #endif
 
-#ifdef RGBLIGHT_ENABLE
-    // レイヤーとLEDを連動させる（レイヤー6のみを点灯させる）
-    uint8_t layer = biton32(state);
-    switch (layer)
-    {
-    // case 0:
-    //     rgblight_enable_noeeprom();
-    //     rgblight_sethsv(0, 0, 10);
-    //     break;
-    // case 2:
-    //     rgblight_enable_noeeprom();
-    //     rgblight_sethsv(120, 100, 10);
-    //     break;
-    // case 3:
-    //     rgblight_enable_noeeprom();
-    //     rgblight_sethsv(240, 100, 10);
-    //     break;
-    case 4:
-        rgblight_disable_noeeprom();
-        break;
+// #ifdef RGBLIGHT_ENABLE
+//     // レイヤーとLEDを連動させる（レイヤー6のみを点灯させる）
+//     uint8_t layer = biton32(state);
+//     switch (layer)
+//     {
+//     // case 0:
+//     //     rgblight_enable_noeeprom();
+//     //     rgblight_sethsv(0, 0, 10);
+//     //     break;
+//     // case 2:
+//     //     rgblight_enable_noeeprom();
+//     //     rgblight_sethsv(120, 100, 10);
+//     //     break;
+//     // case 3:
+//     //     rgblight_enable_noeeprom();
+//     //     rgblight_sethsv(240, 100, 10);
+//     //     break;
+//     case 4:
+//         rgblight_disable_noeeprom();
+//         break;
 
-    default:
-        rgblight_enable_noeeprom();
-        rgblight_sethsv(171,100,10);
-    }
-#endif
+//     default:
+//         rgblight_enable_noeeprom();
+//         rgblight_sethsv(171,100,10);
+//     }
+// #endif
 
     return state;
 }
