@@ -52,12 +52,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   // 追加レイヤーの定義
   // TODO: 時間があったらデフォルトキーマップを設定する
-  // [4] = LAYOUT_universal(
-  //   _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-  //   _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-  //   _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-  //   _______  , _______  , _______  , _______  , _______  , _______  ,      _______ ,  _______  , _______  , _______  , _______  , _______  
-  // ),
+  [4] = LAYOUT_universal(
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,      _______ ,  _______  , _______  , _______  , _______  , _______  
+  ),
   // [5] = LAYOUT_universal(
   //   _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
   //   _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
@@ -76,19 +76,32 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     keyball_handle_auto_mouse_layer_change(state);
 #endif
 
-// #ifdef RGBLIGHT_ENABLE
-//     // レイヤーとLEDを連動させる（レイヤー6のみを点灯させる）
-//     uint8_t layer = biton32(state);
-//     switch (layer)
-//     {
-//     case 5:
-//         rgblight_enable_noeeprom();
-//         break;
+#ifdef RGBLIGHT_ENABLE
+    // レイヤーとLEDを連動させる（レイヤー6のみを点灯させる）
+    uint8_t layer = biton32(state);
+    switch (layer)
+    {
+    case 1:
+        rgblight_enable_noeeprom();
+        rgblight_sethsv(hsv_white);
+        break;
+    case 2:
+        rgblight_enable_noeeprom();
+        rgblight_sethsv(hsv_green);
+        break;
+    case 3:
+        rgblight_enable_noeeprom();
+        rgblight_sethsv(hsv_blue);
+        break;
+    case 4:
+        rgblight_disable_noeeprom();
+        break;
 
-//     default:
-//         rgblight_disable_noeeprom();
-//     }
-// #endif
+    default:
+        rgblight_enable_noeeprom();
+        rgblight_sethsv(171,100,10);
+    }
+#endif
 
     return state;
 }

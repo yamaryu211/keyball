@@ -35,11 +35,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAP_CODE_DELAY 5
 
-// OLED自動消灯時間を所定60秒から30秒に変更
-#define OLED_TIMEOUT 30000 // ミリ秒
+// OLED自動消灯時間を所定60秒から10秒に変更
+#define OLED_TIMEOUT 10000 // ミリ秒
 
 // レイヤ―数追加
-#define DYNAMIC_KEYMAP_LAYER_COUNT 4
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
 
 // マウス、スクロール速度デフォルト値の設定
 #define KEYBALL_CPI_DEFAULT 900 // マウス速度 (default: 500)
