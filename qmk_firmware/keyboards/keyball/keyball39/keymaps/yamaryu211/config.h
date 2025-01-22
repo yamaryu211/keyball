@@ -53,7 +53,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_LAYER_STATE_ENABLE        // レイヤー情報をサブキーボードに送信する
 #define RGBLIGHT_DEFAULT_HUE 142          // バックライトの初期値
 #define RGBLIGHT_DEFAULT_SAT 100          // 〃
-#define RGBLIGHT_DEFAULT_VAL 20         // 〃
+#define RGBLIGHT_DEFAULT_VAL 30         // 〃
 
 // USB接続時のタイムアウト時間を2.5秒に設定
 # define SPLIT_USB_TIMEOUT 2500 // ミリ秒
