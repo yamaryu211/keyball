@@ -83,15 +83,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     {
     case 1:
         rgblight_enable_noeeprom();
-        rgblight_sethsv(hsv_white);
+        rgblight_sethsv(HSV_WHITE, 100, 10);
         break;
     case 2:
         rgblight_enable_noeeprom();
-        rgblight_sethsv(hsv_green);
+        rgblight_sethsv(HSV_GREEN, 100, 10);
         break;
     case 3:
         rgblight_enable_noeeprom();
-        rgblight_sethsv(hsv_blue);
+        rgblight_sethsv(HSV_BLUE, 100, 10);
         break;
     case 4:
         rgblight_disable_noeeprom();
