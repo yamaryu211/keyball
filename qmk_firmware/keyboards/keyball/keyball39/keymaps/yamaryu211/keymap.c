@@ -94,11 +94,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     //     rgblight_sethsv(240, 100, 10);
     //     break;
     case 4:
-        rgblight_disable_noeeprom();
+        //rgblight_disable_noeeprom();
+        rgblight_sethsv(0, 0, 10);
         break;
 
     default:
-        rgblight_enable_noeeprom();
+        //rgblight_enable_noeeprom();
         rgblight_sethsv(171,100,10);
     }
 #endif
