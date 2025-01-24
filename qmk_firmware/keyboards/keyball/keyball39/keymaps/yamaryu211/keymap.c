@@ -122,8 +122,8 @@ void oledkit_render_info_user(void) {
   const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
   // const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
   // const uint16_t PROGMEM combo_tab_alt[] = {KC_S, KC_D, COMBO_END};
-  // const uint16_t PROGMEM combo_left_click[] = {KC_J, KC_K, COMBO_END};
-  // const uint16_t PROGMEM combo_right_click[] = {KC_K, KC_L, COMBO_END};
+  const uint16_t PROGMEM combo_left_click[] = {KC_J, KC_K, COMBO_END};
+  const uint16_t PROGMEM combo_right_click[] = {KC_K, KC_L, COMBO_END};
   // const uint16_t PROGMEM combo_middle_click[] = {KC_J, KC_L, COMBO_END};
   // レイヤー・モディファイアキーを含むコンボキーの設定
   // const uint16_t PROGMEM combo_esc2[] = {MT(MOD_LGUI, KC_Q), KC_W, COMBO_END};
