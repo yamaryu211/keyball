@@ -76,32 +76,32 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     keyball_handle_auto_mouse_layer_change(state);
 #endif
 
-#ifdef RGBLIGHT_ENABLE
-    // レイヤーとLEDを連動させる（レイヤー6のみを点灯させる）
-    uint8_t layer = biton32(state);
-    switch (layer)
-    {
-    // case 0:
-    //     rgblight_enable_noeeprom();
-    //     rgblight_sethsv(0, 0, 10);
-    //     break;
-    // case 2:
-    //     rgblight_enable_noeeprom();
-    //     rgblight_sethsv(120, 100, 10);
-    //     break;
-    // case 3:
-    //     rgblight_enable_noeeprom();
-    //     rgblight_sethsv(240, 100, 10);
-    //     break;
-    case 4:
-        rgblight_disable_noeeprom();
-        break;
+// #ifdef RGBLIGHT_ENABLE
+//     // レイヤーとLEDを連動させる（レイヤー6のみを点灯させる）
+//     uint8_t layer = biton32(state);
+//     switch (layer)
+//     {
+//     // case 0:
+//     //     rgblight_enable_noeeprom();
+//     //     rgblight_sethsv(0, 0, 10);
+//     //     break;
+//     // case 2:
+//     //     rgblight_enable_noeeprom();
+//     //     rgblight_sethsv(120, 100, 10);
+//     //     break;
+//     // case 3:
+//     //     rgblight_enable_noeeprom();
+//     //     rgblight_sethsv(240, 100, 10);
+//     //     break;
+//     case 4:
+//         rgblight_disable_noeeprom();
+//         break;
 
-    default:
-        rgblight_enable_noeeprom();
-        rgblight_sethsv(171,100,10);
-    }
-#endif
+//     default:
+//         rgblight_enable_noeeprom();
+//         rgblight_sethsv(171,100,10);
+//     }
+// #endif
 
     return state;
 }
@@ -119,45 +119,45 @@ void oledkit_render_info_user(void) {
 
 // // コンボキーの設定
 #ifdef COMBO_ENABLE
-  //const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
-  //const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
-  //const uint16_t PROGMEM combo_tab_alt[] = {KC_S, KC_D, COMBO_END};
+  const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
+  // const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
+  const uint16_t PROGMEM combo_tab_alt[] = {KC_S, KC_D, COMBO_END};
   const uint16_t PROGMEM combo_left_click[] = {KC_J, KC_K, COMBO_END};
   const uint16_t PROGMEM combo_right_click[] = {KC_K, KC_L, COMBO_END};
   const uint16_t PROGMEM combo_middle_click[] = {KC_J, KC_L, COMBO_END};
   // レイヤー・モディファイアキーを含むコンボキーの設定
-  //const uint16_t PROGMEM combo_esc2[] = {MT(MOD_LGUI, KC_Q), KC_W, COMBO_END};
+  const uint16_t PROGMEM combo_esc2[] = {MT(MOD_LGUI, KC_Q), KC_W, COMBO_END};
   //const uint16_t PROGMEM combo_tab2[] = {MT(MOD_LCTL, KC_A), MT(MOD_LALT, KC_S), COMBO_END};
-  //const uint16_t PROGMEM combo_tab2_alt[] = {MT(MOD_LALT, KC_S), LT(2, KC_D), COMBO_END};
+  const uint16_t PROGMEM combo_tab2_alt[] = {MT(MOD_LALT, KC_S), LT(2, KC_D), COMBO_END};
   const uint16_t PROGMEM combo_left_click2[] = {LT(1, KC_J), LT(2, KC_K), COMBO_END};
   const uint16_t PROGMEM combo_right_click2[] = {LT(2, KC_K), MT(MOD_LALT, KC_L), COMBO_END};
   const uint16_t PROGMEM combo_middle_click2[] = {LT(1, KC_J), MT(MOD_LALT, KC_L), COMBO_END};
   // 大西配列用のコンボキーの設定
-  //const uint16_t PROGMEM combo_esc3[] = {MT(MOD_LGUI, KC_Q), KC_L, COMBO_END};
+  const uint16_t PROGMEM combo_esc3[] = {MT(MOD_LGUI, KC_Q), KC_L, COMBO_END};
   //const uint16_t PROGMEM combo_tab3[] = {MT(MOD_LCTL, KC_E), MT(MOD_LALT, KC_I), COMBO_END};
-  //const uint16_t PROGMEM combo_tab3_alt[] = {MT(MOD_LALT, KC_I), LT(2, KC_A), COMBO_END};
+  const uint16_t PROGMEM combo_tab3_alt[] = {MT(MOD_LALT, KC_I), LT(2, KC_A), COMBO_END};
   const uint16_t PROGMEM combo_left_click3[] = {LT(1, KC_T), LT(2, KC_N), COMBO_END};
   const uint16_t PROGMEM combo_right_click3[] = {LT(2, KC_N), MT(MOD_LALT, KC_S), COMBO_END};
   const uint16_t PROGMEM combo_middle_click3[] = {LT(1, KC_T), MT(MOD_LALT, KC_S), COMBO_END};
 
   combo_t key_combos[] = {
-      //[0] = COMBO(combo_esc, KC_ESC),
+      [0] = COMBO(combo_esc, KC_ESC),
       //[1] = COMBO(combo_tab, KC_TAB),
-      [0] = COMBO(combo_left_click, KC_BTN1),
-      [1] = COMBO(combo_right_click, KC_BTN2),
-      [2] = COMBO(combo_middle_click, KC_BTN3),
-      //[5] = COMBO(combo_esc2, KC_ESC),
+      [1] = COMBO(combo_left_click, KC_BTN1),
+      [2] = COMBO(combo_right_click, KC_BTN2),
+      [3] = COMBO(combo_middle_click, KC_BTN3),
+      [4] = COMBO(combo_esc2, KC_ESC),
       //[6] = COMBO(combo_tab2, KC_TAB),
-      [3] = COMBO(combo_left_click2, KC_BTN1),
-      [4] = COMBO(combo_right_click2, KC_BTN2),
-      [5] = COMBO(combo_middle_click2, KC_BTN3),
-      //[10] = COMBO(combo_esc3, KC_ESC),
+      [5] = COMBO(combo_left_click2, KC_BTN1),
+      [6] = COMBO(combo_right_click2, KC_BTN2),
+      [7] = COMBO(combo_middle_click2, KC_BTN3),
+      [8] = COMBO(combo_esc3, KC_ESC),
       //[11] = COMBO(combo_tab3, KC_TAB),
-      [6] = COMBO(combo_left_click3, KC_BTN1),
-      [7] = COMBO(combo_right_click3, KC_BTN2),
-      [8] = COMBO(combo_middle_click3, KC_BTN3),
-      // [15] = COMBO(combo_tab_alt, KC_TAB),
-      // [16] = COMBO(combo_tab2_alt, KC_TAB),
-      // [17] = COMBO(combo_tab3_alt, KC_TAB),
+      [9] = COMBO(combo_left_click3, KC_BTN1),
+      [10] = COMBO(combo_right_click3, KC_BTN2),
+      [11] = COMBO(combo_middle_click3, KC_BTN3),
+      [12] = COMBO(combo_tab_alt, KC_TAB),
+      [13] = COMBO(combo_tab2_alt, KC_TAB),
+      [14] = COMBO(combo_tab3_alt, KC_TAB),
   };
 #endif
