@@ -24,10 +24,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
-    KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
-    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_MINS  ,
-    KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  ,
-    KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
+    KC_Q            , KC_W         , KC_E           , KC_R            , KC_T           ,                                  KC_Y          , KC_U            , KC_I        , KC_O           , KC_P            ,
+    LCTL_T(KC_A)    , LALT_T(KC_S) , LT(2, KC_D)    , LT(1, KC_F)     , KC_G           ,                                  KC_H          , LT(1, KC_J)     , LT(2, KC_K) , LALT_T(KC_L)   , LCTL_T(KC_MINS) ,
+    LSFT_T(KC_Z)    , LGUI_T(KC_X) , KC_C           , KC_V            , KC_B           ,                                  KC_N          , KC_M            , KC_COMM     , LGUI_T(KC_DOT) , LSFT_T(KC_SLSH) ,
+    LT(1, KC_LANG2) , KC_ESC       , LGUI_T(KC_TAB) , KC_LALT         , LCTL_T(KC_DEL) , LSFT_T(KC_SPC) , LT(1, KC_ENT) , LT(2,KC_BSPC) , LSFT_T(KC_LNG2) , _______     , _______        , LT(3, KC_LANG1)
   ),
 
   [1] = LAYOUT_universal(
@@ -143,7 +143,7 @@ void oledkit_render_info_user(void) {
   combo_t key_combos[] = {
       COMBO(combo_esc, KC_ESC),
       //[1] = COMBO(combo_tab, KC_TAB),
-      COMBO(combo_left_click, KC_BTN1),
+      // COMBO(combo_left_click, KC_BTN1),
       //[2] = COMBO(combo_right_click, KC_BTN2),
       // [3] = COMBO(combo_middle_click, KC_BTN3),
       // [4] = COMBO(combo_esc2, KC_ESC),
